@@ -18,9 +18,9 @@ class EmployeeController extends Controller
     public function index(Request $request){
 
         if($request->has('search')){
-            $data = Employee::where('nama','LIKE','%' .$request->search. '%')->paginate(10);
+            $data = Employee::where('nama','LIKE','%' .$request->search. '%');
         }else{
-            $data = Employee::paginate(5);
+            $data = Employee::all();
         }
 
         return view('datapegawai', compact('data'));
